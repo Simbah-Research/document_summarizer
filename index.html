@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="svg+xml" href="Logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Summarizer_SR</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
+    <!-- Di bagian head HTML -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img
+          src="Logo.png"
+          alt="Logo"
+          class="center-logo"
+          width="150"
+          height="150"
+        />
+        <h1>Document Summarizer</h1>
+        <p class="subtitle">
+          Upload multiple documents and generate smart summaries
+        </p>
+      </header>
+      <main>
+        <div class="upload-section">
+          <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-content">
+              <svg
+                class="upload-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              <p>Drag & Drop multiple PDF/Word files here</p>
+              <span>or</span>
+              <label for="upload-document" class="upload-btn"
+                >Choose Files</label
+              >
+              <input
+                type="file"
+                id="upload-document"
+                accept=".pdf,.doc,.docx"
+                multiple
+                hidden
+              />
+            </div>
+          </div>
+
+          <div class="files-container">
+            <!-- Uploaded files will be listed here -->
+          </div>
+        </div>
+
+        <div class="controls-section">
+          <div class="summary-controls">
+            <!-- Keyword Input -->
+            <div class="input-group">
+              <label for="keyword-input"
+                >Keywords (optional, comma-separated)</label
+              >
+              <input
+                type="text"
+                id="keyword-input"
+                placeholder="e.g., market analysis, revenue, growth"
+              />
+            </div>
+
+            <!-- Summary Length Controls -->
+            <div class="summary-length-controls">
+              <label>Summary Length</label>
+              <div class="percentage-controls">
+                <button class="percentage-btn" data-percentage="25">25%</button>
+                <button class="percentage-btn active" data-percentage="50">
+                  50%
+                </button>
+                <button class="percentage-btn" data-percentage="75">75%</button>
+                <div class="custom-percentage">
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="50"
+                    id="custom-percentage"
+                  />
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="submit" disabled>Summarize All Documents</button>
+
+            <button class="clear">Clear All</button>
+          </div>
+        </div>
+
+        <div class="summaries-section">
+          <!-- Generated summaries will be listed here -->
+        </div>
+      </main>
+
+      <!--social media & footer-->
+      <div class="social-container">
+        <h3 class="social-title">Mari Terhubung dengan Kami!</h3>
+        <p class="social-subtitle">
+          Ikuti update terbaru seputar tools dan website inovatif
+        </p>
+
+        <div class="social-media">
+          <a
+            href="https://youtube.com/@simbahresearch?si=5WsqbvSSUQHdi7ji"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a
+            href="https://www.instagram.com/ihfan_sholih"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://www.facebook.com/share/19VHrsG2ou/?mibextid=JRoKGi"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@simbah_research?_t=8rQs4AaMY4n&_r=1"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-tiktok"></i>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <a
+          href="https://simbah-research.github.io/Portfolio/"
+          target="_blank"
+          class="footer-link"
+        >
+          © 2024 | Si'Mbah_Research
+        </a>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
